@@ -11,6 +11,7 @@ class Command(BaseCommand):
             try:
                 db_conn = connections['default']
                 c = db_conn.cursor()
+                c.execute('SELECT 1')
             except OperationalError:
                 self.stdout.write('Database unavailable, waiting 1 second...')
                 time.sleep(1)
